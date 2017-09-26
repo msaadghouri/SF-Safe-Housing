@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Find a Home</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+      
+    <script type="text/javascript" src="../static/js/map.js"></script>
+    <script>  
+        function initMap() {
+            loc = new google.maps.LatLng({{ latitude }}, {{ longitude }});
+            
+            geo = new google.maps.Geocoder();
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: loc,
+                zoom: 13
+            });
+            
+            places = new google.maps.places.PlacesService(map);
+            
+            var request = {
+                location: loc,
+                radius: '7000',
+                keyword: 'apartment'
+            };
+            
+            places.nearbySearch(request, placesCallback);
+            
+            crimes = getCrime();
+            var heatmap = new google.maps.visualization.HeatmapLayer(
+                {data: crimes, 
+                 map: map,
+                });
+            heatmap.setOptions({radius: 40});
+        }
+    </script>
+  </head>
+  <body>
+    <div id="searchbar">
+        <form action="/result">
+            Enter a San Francisco location: 
+            <input type="text" id="userloc" value="{{ loc }}" name="userloc">
+            <input type="submit" id="searchbutton" value="Search">
+        </form>
+    </div>
+    
+    <h3>Apartments around San Francisco with a crime heat map.</h3>
+    
+    <div id="content">
+        <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDF1CPYg1NQF7kH-tL9TAPPPf6dXd-Te14&libraries=places,visualization&callback=initMap" async defer></script>
+  </body>
+</html>

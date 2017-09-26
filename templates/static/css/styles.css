@@ -1,0 +1,105 @@
+@import url("normalize.css");
+@import url("Grid.css");
+
+html, body {
+    height: 100%;
+}
+
+#searchbar {
+    margin: 10px 3.7% 10px 3.7%;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+input#userloc {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+input#searchbutton {
+    margin-left: 10px
+}
+
+#content {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#map {
+    height: 100%;
+    width: 90%;
+}
+
+#info {
+    word-wrap: normal;
+    overflow-y: auto;
+    height: 100%;
+    width: 25%;
+    border: 1px solid black;
+}
+
+h3 {
+    margin-left: 5%;
+}
+#legend {
+    background: #FFF;
+    padding: 10px;
+    margin: 10px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+.color {
+    border: 1px solid;
+    height: 12px;
+    width: 12px;
+    margin-right: 3px;
+    float: left;
+}
+.red {
+    background: #C00;
+}
+.yellow {
+    background: #FF3;
+}
+.green {
+    background: #6F0;
+}
+#floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+.button {
+    background-color: #f0b208;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
